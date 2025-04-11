@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/Messagerie2" />
+    <file type="web" url="file://$PROJECT_DIR$/EurekaServer" />
+    <file type="web" url="file://$PROJECT_DIR$/MovieService" />
+    <file type="web" url="file://$PROJECT_DIR$/ProjetReactif" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21_PREVIEW" project-jdk-name="21" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

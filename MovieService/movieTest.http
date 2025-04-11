@@ -1,0 +1,69 @@
+### Vérifier que le service fonctionne et retourne une liste (GET all)
+GET http://localhost:8081/movies
+Accept: application/json
+
+> {%
+    client.test("GET /movies should return 200", function() {
+        client.assert(response.status === 200, "Expected 200 OK");
+    });
+%}
+
+### Vérifier qu'on peut créer un nouveau film (POST)
+POST http://localhost:8081/movies
+Content-Type: application/json
+
+{
+  "title": "Fight Club",
+  "length": 139
+}
+
+> {%
+    client.test("POST /movies should return 201", function() {
+        client.assert(response.status === 201, "Expected 201 Created");
+    });
+%}
+
+### Vérifier que le film créé est bien présent (GET by ID)
+# ⚠️ Remplacer l'ID selon ce qui a été créé
+GET http://localhost:8081/movies/2
+Accept: application/json
+
+> {%
+    client.test("GET /movies/1 should return 200", function() {
+        client.assert(response.status === 200, "Expected 200 OK");
+    });
+%}
+
+### Modifier un film existant (PUT)
+PUT http://localhost:8081/movies/1
+Content-Type: application/json
+
+{
+  "title": "Fight Club (Director's Cut)",
+  "length": 142
+}
+
+> {%
+    client.test("PUT /movies/1 should return 200 or 204", function() {
+        client.assert(response.status === 200 || response.status === 204, "Expected 200 OK or 204 No Content");
+    });
+%}
+
+### Supprimer un film (DELETE)
+DELETE http://localhost:8081/movies/1
+
+> {%
+    client.test("DELETE /movies/1 should return 204", function() {
+        client.assert(response.status === 204, "Expected 204 No Content");
+    });
+%}
+
+### Vérifier que la ressource supprimée n'existe plus (GET => 404 attendu)
+GET http://localhost:8081/movies/1
+Accept: application/json
+
+> {%
+    client.test("GET /movies/1 after delete should return 404", function() {
+        client.assert(response.status === 404, "Expected 404 Not Found");
+    });
+%}

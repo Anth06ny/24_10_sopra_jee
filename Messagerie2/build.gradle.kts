@@ -13,7 +13,7 @@ version = "0.0.1-SNAPSHOT"
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -27,10 +27,17 @@ repositories {
 
 dependencies {
 
+    //Sécurité
+    implementation("org.springframework.boot:spring-boot-starter-security")
+
+    //docu avec Swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.+")
 
     //Permet à JAVA de se connecter à une base SQL
     runtimeOnly("com.h2database:h2")
+
+    //WebSocket
+    implementation("org.springframework.boot:spring-boot-starter-websocket")
 
 //JPA Framework Java qui génère du SQL
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -43,6 +50,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+
 }
 
 kotlin {

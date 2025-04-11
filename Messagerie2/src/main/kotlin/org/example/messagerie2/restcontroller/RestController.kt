@@ -8,6 +8,27 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class MyRestController(val teacherService: TeacherService) {
 
+    //http://localhost:8080/testPublic
+    @GetMapping("/testPublic")
+    fun testPublic(): String {
+        println("/testPublic")
+        return "Hello public"
+    }
+
+    //http://localhost:8080/testPrivate
+    @GetMapping("/testPrivate")
+    fun testPrivate(): String {
+        println("/testPrivate")
+        return "Hello private"
+    }
+
+    //http://localhost:8080/testPrivateAdmin
+    @GetMapping("/testPrivateAdmin")
+    fun testPrivateAdmin(): String {
+        println("/testPrivateAdmin")
+        return "Hello private admin"
+    }
+
     //http://localhost:8080/createTeacher?name=bob&code=5
     @GetMapping("/createTeacher")
     fun createTeacher(name: String = "", code: Int): MutableList<TeacherBean> {
