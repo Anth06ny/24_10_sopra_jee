@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/EurekaServer" />
+    <file type="web" url="file://$PROJECT_DIR$/Messagerie2" />
     <file type="web" url="file://$PROJECT_DIR$/MovieService" />
     <file type="web" url="file://$PROJECT_DIR$/ProjetReactif" />
   </component>

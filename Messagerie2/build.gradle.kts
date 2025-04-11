@@ -7,6 +7,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
     war
 }
+val springCloudVersion by extra("2024.0.1")
 
 group = "org.example"
 version = "0.0.1-SNAPSHOT"
@@ -33,6 +34,9 @@ dependencies {
     //docu avec Swagger
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.+")
 
+    implementation("org.springframework.cloud:spring-cloud-starter-loadbalancer")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+
     //Permet à JAVA de se connecter à une base SQL
     runtimeOnly("com.h2database:h2")
 
@@ -57,6 +61,11 @@ dependencies {
 kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
+    }
+}
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
     }
 }
 
